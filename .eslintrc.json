@@ -1,0 +1,21 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off", // Disable the rule requiring React in scope
+        "indent": [
+            "error",
+            2
+        ] // Enforce 2 spaces per indentation level
+    },
+    "settings": {
+        "react": {
+            "version": "detect" // Automatically detect the React version
+        }
+    }
+}

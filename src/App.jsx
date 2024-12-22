@@ -3,12 +3,12 @@
 import { Route, Routes } from "react-router-dom";
 import Topbar from "./Scenes/global/Topbar";
 import { ColorModeContext, useMode } from "./theme";
-import { ThemeProvider, CssBaseline } from "@mui/material";
+import { ThemeProvider, CssBaseline, Container } from "@mui/material";
 import SidebarComponent from "./Scenes/global/SidebarComponent";
 import Dashboard from "./Scenes/dashboard";
-// import Team from "./Scenes/team";
-// import Invoices from "./Scenes/invoices";
-// import Contacts from "./Scenes/contacts";
+import Teams from "./Scenes/teams";
+import Invoices from "./Scenes/invoices";
+import Contacts from "./Scenes/contacts";
 // import Bar from "./Scenes/bar";
 // import Form from "./Scenes/form";
 // import Line from "./Scenes/line";
@@ -28,11 +28,12 @@ function App() {
             <SidebarComponent />
             <main className="content">
               <Topbar />
+
               <Routes>
                 <Route path="/" element={<Dashboard />} />
-                {/* <Route path="/team" element={<Team />} /> */}
-                {/* <Route path="/invoices" element={<Invoices />} /> */}
-                {/* <Route path="/contacts" element={<Contacts />} /> */}
+                <Route path="/teams" element={<Teams />} />
+                <Route path="/invoices" element={<Invoices />} />
+                <Route path="/contacts" element={<Contacts />} />
                 {/* <Route path="/bar" element={<Bar />} /> */}
                 {/* <Route path="/form" element={<Form />} /> */}
                 {/* <Route path="/line" element={<Line />} /> */}

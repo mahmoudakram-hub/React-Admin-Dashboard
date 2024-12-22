@@ -20,59 +20,99 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import profileImage from "../../assets/profileImage.jpeg";
 
-const Item = ({ icon, title, to }) => {
+const Item = ({ icon, title, to, subTitle }) => {
+  const data = { title, subTitle };
   return (
-    <MenuItem icon={icon} component={<NavLink to={to} />}>
+    <MenuItem icon={icon} component={<NavLink to={to} state={data} />}>
       {title}
     </MenuItem>
   );
 };
-
-// const allItems = [
-//   <Item icon={<HomeOutlinedIcon />} title="Dashboard" to="/" />,
-//   <Item icon={<PeopleOutlinedIcon />} title="Team" to="/team" />,
-//   <Item icon={<ContactsOutlinedIcon />} title="Contacts" to="/contacts" />,
-//   <Item icon={<ReceiptOutlinedIcon />} title="Invoices" to="/invoices" />,
-//   <Item icon={<PersonOutlinedIcon />} title="Profile" to="/profile" />,
-//   <Item icon={<CalendarTodayOutlinedIcon />} title="Calendar" to="/calendar" />,
-//   <Item icon={<HelpOutlineOutlinedIcon />} title="FAQ" to="/faq" />,
-//   <Item icon={<BarChartOutlinedIcon />} title="Bar" to="/bar" />,
-//   <Item icon={<PieChartOutlineOutlinedIcon />} title="Pie" to="/pie" />,
-//   <Item icon={<TimelineOutlinedIcon />} title="Line" to="/line" />,
-//   <Item icon={<MapOutlinedIcon />} title="Geography" to="/geography" />,
-// ];
 const allItems = [
   {
     label: null,
-    components: [<Item icon={<HomeOutlinedIcon />} title="Dashboard" to="/" />],
+    components: [
+      <Item
+        icon={<HomeOutlinedIcon />}
+        title="Dashboard"
+        to="/"
+        subTitle={"Welcome to your dashboard"}
+      />,
+    ],
   },
   {
     label: "Data",
     components: [
-      <Item icon={<PeopleOutlinedIcon />} title="Team" to="/team" />,
-      <Item icon={<ContactsOutlinedIcon />} title="Contacts" to="/contacts" />,
-      <Item icon={<ReceiptOutlinedIcon />} title="Invoices" to="/invoices" />,
+      <Item
+        icon={<PeopleOutlinedIcon />}
+        title="Team"
+        to="/teams"
+        subTitle={"Welcome to your team"}
+      />,
+      <Item
+        icon={<ContactsOutlinedIcon />}
+        title="Contacts"
+        to="/contacts"
+        subTitle={"Welcome to your contacts"}
+      />,
+      <Item
+        icon={<ReceiptOutlinedIcon />}
+        title="Invoices"
+        to="/invoices"
+        subTitle={"Welcome to your invoices"}
+      />,
     ],
   },
   {
     label: "Pages",
     components: [
-      <Item icon={<PersonOutlinedIcon />} title="Profile" to="/profile" />,
+      <Item
+        icon={<PersonOutlinedIcon />}
+        title="Profile"
+        to="/profile"
+        subTitle={"Welcome to your profile"}
+      />,
       <Item
         icon={<CalendarTodayOutlinedIcon />}
         title="Calendar"
         to="/calendar"
+        subTitle={"Welcome to your calendar"}
       />,
-      <Item icon={<HelpOutlineOutlinedIcon />} title="FAQ" to="/faq" />,
+      <Item
+        icon={<HelpOutlineOutlinedIcon />}
+        title="FAQ"
+        to="/faq"
+        subTitle={"Welcome to your faq"}
+      />,
     ],
   },
   {
     label: "Charts",
     components: [
-      <Item icon={<BarChartOutlinedIcon />} title="Bar" to="/bar" />,
-      <Item icon={<PieChartOutlineOutlinedIcon />} title="Pie" to="/pie" />,
-      <Item icon={<TimelineOutlinedIcon />} title="Line" to="/line" />,
-      <Item icon={<MapOutlinedIcon />} title="Geography" to="/geography" />,
+      <Item
+        icon={<BarChartOutlinedIcon />}
+        title="Bar"
+        to="/bar"
+        subTitle={"Welcome to your bar"}
+      />,
+      <Item
+        icon={<PieChartOutlineOutlinedIcon />}
+        title="Pie"
+        to="/pie"
+        subTitle={"Welcome to your pie"}
+      />,
+      <Item
+        icon={<TimelineOutlinedIcon />}
+        title="Line"
+        to="/line"
+        subTitle={"Welcome to your line"}
+      />,
+      <Item
+        icon={<MapOutlinedIcon />}
+        title="Geography"
+        to="/geography"
+        subTitle={"Welcome to your geography"}
+      />,
     ],
   },
 ];
@@ -173,7 +213,11 @@ const SidebarComponent = () => {
           {allItems.map((item, index) => (
             <Box key={index}>
               {item.label && (
-                <Typography variant="h5" sx={{ m: "15px 0 5px 20px" }}>
+                <Typography
+                  variant="h5"
+                  sx={{ m: "15px 0 5px 20px" }}
+                  color={colors.grey[300]}
+                >
                   {item.label}
                 </Typography>
               )}

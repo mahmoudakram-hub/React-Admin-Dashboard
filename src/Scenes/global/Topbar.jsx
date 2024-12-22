@@ -1,5 +1,5 @@
 /** @format */
-import { Box, Container, IconButton, InputBase, useTheme } from "@mui/material";
+import { Box, IconButton, InputBase, useTheme } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -7,6 +7,7 @@ import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import Header from "../../Components/Header";
 /**
  * A navigation bar at the top of the page, with a search bar,
  * notification, user, and dark mode toggle icons.
@@ -23,13 +24,14 @@ const Topbar = () => {
   }
 
   return (
-    <Container>
+    <>
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
           py: 2,
           alignItems: "center",
+          px: 2,
         }}
       >
         <Box
@@ -52,7 +54,8 @@ const Topbar = () => {
           </IconButton>
         </Box>
       </Box>
-    </Container>
+      <Header />
+    </>
   );
 };
 

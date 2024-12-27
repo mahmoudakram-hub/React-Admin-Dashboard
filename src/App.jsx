@@ -9,13 +9,14 @@ import Dashboard from "./Scenes/dashboard";
 import Teams from "./Scenes/teams";
 import Invoices from "./Scenes/invoices";
 import Contacts from "./Scenes/contacts";
-// import Bar from "./Scenes/bar";
-// import Form from "./Scenes/form";
-// import Line from "./Scenes/line";
-// import Pie from "./Scenes/pio";
-// import Faq from "./Scenes/faq";
-// import Geography from "./Scenes/geography";
-// import Calendar from "./Scenes/calendar";
+import Bar from "./Scenes/bar/Bar";
+import Form from "./Scenes/form";
+import Faq from "./Scenes/faq";
+import Calendar from "./Scenes/calendar";
+import Pie from "./Scenes/pie";
+import Line from "./Scenes/line/Line";
+import Geography from "./Scenes/geography";
+
 function App() {
   const { theme, colorMode } = useMode();
   console.log(theme);
@@ -34,13 +35,13 @@ function App() {
                 <Route path="/teams" element={<Teams />} />
                 <Route path="/invoices" element={<Invoices />} />
                 <Route path="/contacts" element={<Contacts />} />
-                {/* <Route path="/bar" element={<Bar />} /> */}
-                {/* <Route path="/form" element={<Form />} /> */}
-                {/* <Route path="/line" element={<Line />} /> */}
-                {/* <Route path="/pio" element={<Pie />} /> */}
-                {/* <Route path="/faq" element={<Faq />} /> */}
-                {/* <Route path="/geography" element={<Geography />} /> */}
-                {/* <Route path="/geography" element={<Calendar />} /> */}
+                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/bar" element={<Bar />} />
+                <Route path="/form" element={<Form />} />
+                <Route path="/line" element={<Line />} />
+                <Route path="/pie" element={<Pie />} />
+                <Route path="/faq" element={<Faq />} />
+                <Route path="/geography" element={<Geography />} />
               </Routes>
             </main>
           </div>

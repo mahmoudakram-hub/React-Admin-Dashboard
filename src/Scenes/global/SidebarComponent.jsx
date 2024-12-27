@@ -2,7 +2,7 @@
 import { Box, useTheme, IconButton, Typography } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
 import { tokens } from "../../theme";
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
@@ -19,6 +19,7 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import profileImage from "../../assets/profileImage.jpeg";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Item = ({ icon, title, to, subTitle }) => {
   const data = { title, subTitle };
@@ -68,8 +69,8 @@ const allItems = [
     components: [
       <Item
         icon={<PersonOutlinedIcon />}
-        title="Profile"
-        to="/profile"
+        title="Profile Form"
+        to="/form"
         subTitle={"Welcome to your profile"}
       />,
       <Item
@@ -118,10 +119,14 @@ const allItems = [
 ];
 
 const SidebarComponent = () => {
+  const isMobile = useMediaQuery("(max-width:600px)");
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
+  useEffect(() => {
+    isMobile ? setIsCollapsed(true) : setIsCollapsed(false);
+  }, [isMobile]);
   function handelCollapse() {
     setIsCollapsed((prev) => !prev);
   }

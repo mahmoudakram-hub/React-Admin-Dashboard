@@ -44,7 +44,7 @@ const LineChart = () => {
         },
         tooltip: {
           container: {
-            color: colors.primary[400],
+            color: colors.primary[500],
             fontSize: "15px",
           },
         },
@@ -57,7 +57,14 @@ const LineChart = () => {
           },
         },
       }}
-      margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+      enableGridX={false}
+      enableGridY={false}
+      enableArea={isDashboard}
+      margin={
+        isDashboard
+          ? { top: 10, right: 0, bottom: 30, left: 30 }
+          : { top: 10, right: 50, bottom: 30, left: 50 }
+      }
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
@@ -87,6 +94,7 @@ const LineChart = () => {
         legendOffset: -40,
         legendPosition: "middle",
         truncateTickAt: 0,
+        tickValues: 5,
       }}
       colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }}
       pointSize={10}
@@ -97,32 +105,36 @@ const LineChart = () => {
       pointLabelYOffset={-12}
       enableTouchCrosshair={true}
       useMesh={true}
-      legends={[
-        {
-          anchor: "bottom-right",
-          direction: "column",
-          justify: false,
-          translateX: 100,
-          translateY: 0,
-          itemsSpacing: 0,
-          itemDirection: "left-to-right",
-          itemWidth: 80,
-          itemHeight: 20,
-          itemOpacity: 0.75,
-          symbolSize: 12,
-          symbolShape: "circle",
-          symbolBorderColor: "rgba(0, 0, 0, .5)",
-          effects: [
-            {
-              on: "hover",
-              style: {
-                itemBackground: "rgba(0, 0, 0, .03)",
-                itemOpacity: 1,
+      legends={
+        !isDashboard
+          ? [
+              {
+                anchor: "bottom-right",
+                direction: "column",
+                justify: false,
+                translateX: 100,
+                translateY: 0,
+                itemsSpacing: 0,
+                itemDirection: "left-to-right",
+                itemWidth: 80,
+                itemHeight: 20,
+                itemOpacity: 0.75,
+                symbolSize: 12,
+                symbolShape: "circle",
+                symbolBorderColor: "rgba(0, 0, 0, .5)",
+                effects: [
+                  {
+                    on: "hover",
+                    style: {
+                      itemBackground: "rgba(0, 0, 0, .03)",
+                      itemOpacity: 1,
+                    },
+                  },
+                ],
               },
-            },
-          ],
-        },
-      ]}
+            ]
+          : undefined
+      }
     />
   );
 };

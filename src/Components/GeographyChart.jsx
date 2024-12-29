@@ -44,16 +44,34 @@ const GeographyChart = () => {
       }}
       data={data}
       features={geoFeatures.features}
-      margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+      margin={
+        isDashboard
+          ? { top: -35, right: 0, bottom: 0, left: 0 }
+          : { top: 0, right: 0, bottom: 0, left: 0 }
+      }
+      projectionType="mercator"
       domain={[0, 1000000]}
       unknownColor="#666666"
       label="properties.name"
       valueFormat=".2s"
-      projectionScale={isDashboard ? 40 : 150}
+      projectionScale={isDashboard ? 38 : 150}
       projectionTranslation={isDashboard ? [0.49, 0.6] : [0.5, 0.5]}
       projectionRotation={[0, 0, 0]}
       borderWidth={1.5}
+      fillColor={colors.greenAccent[600]}
       borderColor={colors.greenAccent[100]}
+      enableGraticule={false}
+      graticuleLineWidth={0.5}
+      graticuleLineColor={colors.greenAccent[100]}
+      isInteractive
+      onMouseEnter={({ id }) => {}}
+      onMouseLeave={({ id }) => {}}
+      onMouseMove={({ id }) => {}}
+      // layers={[]}
+      onClick={({ id }) => {}}
+      colors="nivo"
+      fillOpacity={0.9}
+      blendMode="multiply"
       legends={
         !isDashboard
           ? [

@@ -1,8 +1,7 @@
 /** @format */
 
 import { Box } from "@mui/material";
-import LineChart from "../../Components/LineChart";
-
+import LineChart from "../../components/LineChart";
 const Line = () => {
   return (
     <Box height="75vh">

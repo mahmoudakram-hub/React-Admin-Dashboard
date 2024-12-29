@@ -33,7 +33,7 @@ const PieChart = () => {
         },
         tooltip: {
           container: {
-            color: colors.primary[400],
+            color: colors.primary[500],
             fontSize: "15px",
           },
         },

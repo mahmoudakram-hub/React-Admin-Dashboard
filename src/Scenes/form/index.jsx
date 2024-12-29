@@ -53,7 +53,7 @@ const Form = () => {
                 "&": {
                   display: "grid",
                   gap: "30px",
-                  boxShadow: " rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;",
+                  // boxShadow: " rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;",
                   gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
                 },
                 "& > div": {

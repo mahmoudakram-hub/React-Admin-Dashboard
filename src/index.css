@@ -11,7 +11,13 @@ html, body, .app, #root, .content {
 
 .app {
   display: flex;
+  height: fit-content;
+  min-height: 100vh;
+  /* display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr); */
   position: relative;
+
 }
 
 ::-webkit-scrollbar {

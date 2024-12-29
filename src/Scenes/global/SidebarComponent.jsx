@@ -119,7 +119,7 @@ const allItems = [
 ];
 
 const SidebarComponent = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:1000px)");
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -143,7 +143,10 @@ const SidebarComponent = () => {
         },
       }}
     >
-      <Sidebar collapsed={isCollapsed} rootStyles={{ width: "260px" }}>
+      <Sidebar
+        collapsed={isCollapsed}
+        rootStyles={{ width: "100%", height: "100%" }}
+      >
         <Box
           display="flex"
           justifyContent="space-between"
@@ -205,12 +208,13 @@ const SidebarComponent = () => {
                 marginLeft: !isCollapsed ? "10px" : undefined,
               },
               ["&.active"]: {
-                // backgroundColor: colors.primary[600],
+                backgroundColor: colors.primary[700],
                 // color: "white",
-                color: colors.blueAccent[300],
+                color: colors.grey[100],
+                borderRadius: "5px",
               },
               ["&:hover"]: {
-                backgroundColor: colors.primary[500],
+                backgroundColor: colors.primary[700],
               },
             },
           }}

@@ -4,9 +4,10 @@ import { Box, useTheme } from "@mui/material";
 import { GridToolbar, DataGrid } from "@mui/x-data-grid";
 import { mockDataContacts } from "../../Data/mockData";
 import { tokens } from "../../theme";
-import { lazy, Suspense, useMemo } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
 
 const Contacts = () => {
+  const [minWidth, setMinWidth] = useState(900);
   const theme = useTheme();
   const colors = useMemo(
     () => tokens(theme.palette.mode),
@@ -66,6 +67,10 @@ const Contacts = () => {
       m={"20px"}
       height={"75vh"}
       sx={{
+        "&": {
+          maxWidth: "100%",
+          overflowX: "scroll",
+        },
         "& .MuiDataGrid-root": {
           border: "none !important",
           color: `${colors.greenAccent[200]} !important`,
@@ -104,6 +109,7 @@ const Contacts = () => {
           slots={{ toolbar: GridToolbar }}
           pageSize={10}
           rowsPerPageOptions={[10, 25, 50]}
+          sx={{ minWidth }}
         />
       </Suspense>
     </Box>

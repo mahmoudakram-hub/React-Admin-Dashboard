@@ -9,6 +9,10 @@ html, body, .app, #root, .content {
 
 }
 
+.content {
+  overflow: hidden;
+}
+
 .app {
   display: flex;
   height: fit-content;

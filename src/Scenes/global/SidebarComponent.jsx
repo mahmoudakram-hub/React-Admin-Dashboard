@@ -2,7 +2,7 @@
 import { Box, useTheme, IconButton, Typography } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
 import { tokens } from "../../theme";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
@@ -124,10 +124,12 @@ const SidebarComponent = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     isMobile ? setIsCollapsed(true) : setIsCollapsed(false);
   }, [isMobile]);
+  // useEffect(() => {
+  //   isMobile ? setIsCollapsed(true) : setIsCollapsed(false);
+  // }, [isMobile]);
   function handelCollapse() {
     setIsCollapsed((prev) => !prev);
   }
@@ -144,6 +146,25 @@ const SidebarComponent = () => {
         },
       }}
     >
+      {isMobile && (
+        <Box
+          component="img"
+          alt="profile user"
+          src={profileImage}
+          height="70px"
+          width="70px"
+          borderRadius="50%"
+          sx={{
+            "&": {
+              objectFit: "cover",
+              position: "fixed",
+              bottom: "50px",
+              left: "10px",
+              zIndex: "1",
+            },
+          }}
+        ></Box>
+      )}
       <Sidebar
         collapsed={isCollapsed}
         rootStyles={{ width: "100%", height: "100%" }}
@@ -163,10 +184,13 @@ const SidebarComponent = () => {
               Admin
             </Typography>
           )}
-          <IconButton onClick={() => handelCollapse()}>
-            <MenuOutlinedIcon />
-          </IconButton>
+          {!isMobile && (
+            <IconButton onClick={() => handelCollapse()}>
+              <MenuOutlinedIcon />
+            </IconButton>
+          )}
         </Box>
+
         {!isCollapsed && (
           <Box mb="25px">
             <Box display="flex" justifyContent="center" alignItems="center">

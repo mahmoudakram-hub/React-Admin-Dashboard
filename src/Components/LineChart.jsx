@@ -3,7 +3,7 @@
 import { ResponsiveLine } from "@nivo/line";
 import { mockLineData as data } from "../Data/mockData";
 import { tokens } from "../theme";
-import { useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
 const LineChart = () => {
@@ -12,6 +12,7 @@ const LineChart = () => {
     : true;
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const isMobile = useMediaQuery("(max-width:1000px)");
 
   return (
     <ResponsiveLine
@@ -65,6 +66,8 @@ const LineChart = () => {
       margin={
         isDashboard
           ? { top: 10, right: 0, bottom: 30, left: 30 }
+          : isMobile
+          ? { top: 50, right: 80, bottom: 30, left: 50 }
           : { top: 10, right: 50, bottom: 30, left: 50 }
       }
       xScale={{ type: "point" }}

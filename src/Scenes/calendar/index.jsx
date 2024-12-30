@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemText,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import interactionPlugin from "@fullcalendar/interaction"; // for selectable
@@ -24,7 +25,7 @@ const Calendar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [currentEvent, setCurrentEvent] = useState([]);
-
+  const isMobile = useMediaQuery("(max-width:1000px)");
   const handleDateClick = (selected) => {
     const title = prompt("Please Enter Your Event Title");
     const calendarApi = selected.view.calendar;
@@ -51,7 +52,12 @@ const Calendar = () => {
     }
   };
   return (
-    <Box m="20px" display="flex" justifyContent="space-between">
+    <Box
+      m="20px"
+      display="flex"
+      justifyContent="space-between"
+      flexDirection={isMobile ? "column" : "row"}
+    >
       <Box
         flex={"1 1 20%"}
         backgroundColor={colors.primary[400]}
@@ -86,7 +92,15 @@ const Calendar = () => {
         </List>
       </Box>
 
-      <Box flex={"1 1 100%"} m="15px">
+      <Box
+        flex={"1 1 100%"}
+        m="15px"
+        sx={{
+          ".fc-header-toolbar ": {
+            flexDirection: isMobile ? "column" : "row",
+          },
+        }}
+      >
         <FullCalendar
           height={"75vh"}
           plugins={[

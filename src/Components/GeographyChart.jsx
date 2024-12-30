@@ -69,11 +69,12 @@ const GeographyChart = () => {
       onMouseEnter={({ id }) => {}}
       onMouseLeave={({ id }) => {}}
       onMouseMove={({ id }) => {}}
-      // layers={[]}
       onClick={({ id }) => {}}
       colors="nivo"
       fillOpacity={0.9}
       blendMode="multiply"
+      role="application"
+      layers={["graticule", "features"]}
       legends={
         !isDashboard
           ? [

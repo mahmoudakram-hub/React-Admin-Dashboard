@@ -1,6 +1,13 @@
 /** @format */
 
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { tokens } from "../../theme";
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
@@ -17,6 +24,8 @@ import { NavLink } from "react-router-dom";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 
 const Dashboard = () => {
+  const isMobile = useMediaQuery("(max-width:1000px)");
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   console.log("work");
@@ -43,7 +52,7 @@ const Dashboard = () => {
         gap="20px"
       >
         <Box
-          gridColumn={"span 3"}
+          gridColumn={isMobile ? "span 12" : "span 3"}
           backgroundColor={colors.primary[400]}
           display={"flex"}
           alignItems={"center"}
@@ -63,7 +72,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn={"span 3"}
+          gridColumn={isMobile ? "span 12" : "span 3"}
           backgroundColor={colors.primary[400]}
           display={"flex"}
           alignItems={"center"}
@@ -83,7 +92,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn={"span 3"}
+          gridColumn={isMobile ? "span 12" : "span 3"}
           backgroundColor={colors.primary[400]}
           display={"flex"}
           alignItems={"center"}
@@ -103,7 +112,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn={"span 3"}
+          gridColumn={isMobile ? "span 12" : "span 3"}
           backgroundColor={colors.primary[400]}
           display={"flex"}
           alignItems={"center"}
@@ -124,7 +133,7 @@ const Dashboard = () => {
         </Box>
 
         <Box
-          gridColumn={"span 8"}
+          gridColumn={isMobile ? "span 12" : "span 8"}
           gridRow="span 3"
           backgroundColor={colors.primary[400]}
           padding={"30px"}
@@ -156,7 +165,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn={"span 4"}
+          gridColumn={isMobile ? "span 12" : "span 4"}
           gridRow="span 3"
           backgroundColor={colors.primary[400]}
           padding={"30px"}
@@ -219,7 +228,7 @@ const Dashboard = () => {
         {/* Row 3  */}
 
         <Box
-          gridColumn={"span 4"}
+          gridColumn={isMobile ? "span 12" : "span 4"}
           gridRow={"span 2"}
           backgroundColor={colors.primary[400]}
           padding={"30px"}
@@ -261,7 +270,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn={"span 4"}
+          gridColumn={isMobile ? "span 12" : "span 4"}
           gridRow={"span 2"}
           backgroundColor={colors.primary[400]}
           padding={"30px"}
@@ -290,7 +299,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn={"span 4"}
+          gridColumn={isMobile ? "span 12" : "span 4"}
           gridRow={"span 2"}
           backgroundColor={colors.primary[400]}
           padding={"30px"}

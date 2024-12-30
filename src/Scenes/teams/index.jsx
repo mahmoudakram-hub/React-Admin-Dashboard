@@ -12,7 +12,6 @@ import {
   SecurityOutlined,
 } from "@mui/icons-material";
 import { lazy, Profiler, Suspense, useMemo, useState } from "react";
-import { useActionState } from "react";
 
 const onRenderCallback = (
   id, // Component name
@@ -28,7 +27,7 @@ const onRenderCallback = (
 
 const Teams = () => {
   const theme = useTheme();
-  const [minWidth, setMinWidth] = useState(600);
+  const [minWidth, setMinWidth] = useState(900);
   const colors = useMemo(
     () => tokens(theme.palette.mode),
     [theme.palette.mode]
@@ -98,7 +97,12 @@ const Teams = () => {
   return (
     <Box
       m={"20px"}
+      maxWidth={"60%"}
       sx={{
+        "&": {
+          maxWidth: "100%",
+          overflowX: "scroll",
+        },
         "& .MuiDataGrid-root": {
           border: "none !important",
           color: `${colors.greenAccent[200]} !important`,
@@ -126,7 +130,7 @@ const Teams = () => {
       }}
     >
       <Suspense fallback={<div>Loading...</div>}>
-        <LazyDataGrid rows={mockDataTeam} columns={columns} />
+        <LazyDataGrid rows={mockDataTeam} columns={columns} sx={{ minWidth }} />
       </Suspense>
     </Box>
   );

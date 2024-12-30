@@ -4,9 +4,10 @@ import { Box, Typography, useTheme } from "@mui/material";
 import { GridToolbar, DataGrid } from "@mui/x-data-grid";
 import { mockDataInvoices } from "../../Data/mockData";
 import { tokens } from "../../theme";
-import { lazy, Suspense, useMemo } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
 
 const Invoices = () => {
+  const [minWidth, setMinWidth] = useState(900);
   const theme = useTheme();
   const colors = useMemo(
     () => tokens(theme.palette.mode),
@@ -65,6 +66,10 @@ const Invoices = () => {
       m={"20px"}
       height={"75vh"}
       sx={{
+        "&": {
+          maxWidth: "100%",
+          overflowX: "scroll",
+        },
         "& .MuiDataGrid-root": {
           border: "none !important",
           color: `${colors.greenAccent[200]} !important`,
@@ -102,6 +107,7 @@ const Invoices = () => {
           pageSize={10}
           rowsPerPageOptions={[10, 25, 50]}
           checkboxSelection
+          sx={{ minWidth }}
         />
       </Suspense>
     </Box>

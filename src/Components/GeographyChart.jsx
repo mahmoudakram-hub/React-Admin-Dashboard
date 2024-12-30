@@ -10,7 +10,9 @@ import { useLocation } from "react-router-dom";
 const GeographyChart = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const isDashboard = useLocation().state.title === "Dashboard";
+  const isDashboard = useLocation().state
+    ? useLocation().state?.title === "Dashboard"
+    : true;
 
   return (
     <ResponsiveChoropleth

@@ -9,7 +9,6 @@ const Header = ({ title, subTitle }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const location = useLocation();
-  console.log(location);
 
   return (
     <Box display="flex" justifyContent="space-between" p={2} mb={2}>

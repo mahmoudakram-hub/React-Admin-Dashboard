@@ -1,8 +1,8 @@
 /** @format */
 import { Box, useTheme, IconButton, Typography } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { tokens } from "../../theme";
-import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import React, { useLayoutEffect, useMemo, useState } from "react";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
@@ -16,7 +16,6 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import profileImage from "../../assets/profileImage.jpeg";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -37,7 +36,7 @@ const allItems = [
       <Item
         icon={<HomeOutlinedIcon />}
         title="Dashboard"
-        to="/"
+        to="/dashboard"
         subTitle={"Welcome to your dashboard"}
       />,
     ],
@@ -146,29 +145,27 @@ const SidebarComponent = () => {
         },
       }}
     >
-      {isMobile && (
-        <Box
-          component="img"
-          alt="profile user"
-          src={profileImage}
-          height="70px"
-          width="70px"
-          borderRadius="50%"
-          sx={{
-            "&": {
-              objectFit: "cover",
-              position: "fixed",
-              bottom: "50px",
-              left: "10px",
-              zIndex: "1",
-            },
-          }}
-        ></Box>
-      )}
       <Sidebar
         collapsed={isCollapsed}
         rootStyles={{ width: "100%", height: "100%" }}
       >
+        {isMobile && (
+          <Box
+            padding={"5px !important"}
+            component="img"
+            alt="profile user"
+            src={profileImage}
+            height="70px"
+            width="70px"
+            borderRadius="50%"
+            sx={{
+              "&": {
+                padding: "5px",
+                objectFit: "cover",
+              },
+            }}
+          ></Box>
+        )}
         <Box
           display="flex"
           justifyContent="space-between"

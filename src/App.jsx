@@ -16,6 +16,7 @@ import Calendar from "./Scenes/calendar";
 import Pie from "./Scenes/pie";
 import Line from "./Scenes/line/Line";
 import Geography from "./Scenes/geography";
+import PreLoader from "./Scenes/preLoader/PreLoader";
 
 function App() {
   const { theme, colorMode } = useMode();
@@ -31,17 +32,20 @@ function App() {
               <Topbar />
 
               <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/teams" element={<Teams />} />
-                <Route path="/invoices" element={<Invoices />} />
-                <Route path="/contacts" element={<Contacts />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/bar" element={<Bar />} />
-                <Route path="/form" element={<Form />} />
-                <Route path="/line" element={<Line />} />
-                <Route path="/pie" element={<Pie />} />
-                <Route path="/faq" element={<Faq />} />
-                <Route path="/geography" element={<Geography />} />
+                <Route path="/">
+                  <Route index element={<PreLoader />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/teams" element={<Teams />} />
+                  <Route path="/invoices" element={<Invoices />} />
+                  <Route path="/contacts" element={<Contacts />} />
+                  <Route path="/calendar" element={<Calendar />} />
+                  <Route path="/bar" element={<Bar />} />
+                  <Route path="/form" element={<Form />} />
+                  <Route path="/line" element={<Line />} />
+                  <Route path="/pie" element={<Pie />} />
+                  <Route path="/faq" element={<Faq />} />
+                  <Route path="/geography" element={<Geography />} />
+                </Route>
               </Routes>
             </main>
           </div>

@@ -17,7 +17,6 @@ const ProgressCircle = ({ progress = 0.75, size = 40 }) => {
         conic-gradient(transparent 0deg ${angle}deg, ${colors.blueAccent[500]} ${angle}deg 360deg),
         ${colors.greenAccent[500]}`,
         borderRadius: "50%",
-        borderRadius: "50%",
         width: `${size}px`,
         height: `${size}px`,
       }}
